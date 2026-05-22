@@ -426,10 +426,10 @@ export default {
   logs: {
     title: '실행 로그',
     clear: '지우기',
-    autoClearOnLaunch: '시작 시 자동 지우기',
     autoscroll: '자동 스크롤',
     noLogs: '로그가 없습니다',
     copyAll: '모두 복사',
+    showMoreLogs: '로그 더 보기',
     expand: '상단 패널 펼치기',
     collapse: '상단 패널 접기',
     scrollToLogs: '로그 보기',
@@ -459,14 +459,17 @@ export default {
       agentConnected: 'Agent가 연결되었습니다',
       agentDisconnected: 'Agent 연결이 끊어졌습니다',
       agentFailed: 'Agent 시작에 실패했습니다',
+      agentLogFloodWarning:
+        'Agent가 로그 폭주 상태입니다. 성능 문제를 방지하기 위해 로그 표시를 일시 중지했습니다. 전체 로그는 로컬 로그 파일에서 확인할 수 있습니다.',
+      agentLogFloodRecovered: 'Agent 로그 폭주가 완화되었습니다',
       // 단축키
       hotkeyDetected: '단축키 감지: {{combo}} ({{action}})',
       hotkeyActionStart: '작업 시작',
       hotkeyActionStop: '작업 중지',
-      hotkeyStartSuccess: '단축키로 작업 시작: 성공',
-      hotkeyStartFailed: '단축키로 작업 시작: 실패',
-      hotkeyStopSuccess: '단축키로 작업 중지: 성공',
-      hotkeyStopFailed: '단축키로 작업 중지: 실패',
+      hotkeyStartSuccess: '단축키로 작업을 시작했습니다:',
+      hotkeyStartFailed: '단축키로 작업을 시작하지 못했습니다',
+      hotkeyStopSuccess: '단축키로 작업을 중지했습니다',
+      hotkeyStopFailed: '단축키로 작업을 중지하지 못했습니다',
     },
   },
 

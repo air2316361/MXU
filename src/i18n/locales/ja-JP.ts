@@ -429,10 +429,10 @@ export default {
   logs: {
     title: '実行ログ',
     clear: 'クリア',
-    autoClearOnLaunch: '起動時に自動クリア',
     autoscroll: '自動スクロール',
     noLogs: 'ログがありません',
     copyAll: 'すべてコピー',
+    showMoreLogs: 'さらにログを表示',
     expand: '上部パネルを展開',
     collapse: '上部パネルを折りたたむ',
     scrollToLogs: 'ログを表示',
@@ -462,14 +462,17 @@ export default {
       agentConnected: 'Agent が接続しました',
       agentDisconnected: 'Agent が切断しました',
       agentFailed: 'Agent の起動に失敗しました',
+      agentLogFloodWarning:
+        'Agent がログスパム状態です。性能問題を避けるためログ表示を一時停止しました。完全なログはローカルのログファイルで確認できます。',
+      agentLogFloodRecovered: 'Agent のログスパムが緩和されました',
       // ショートカットキー
       hotkeyDetected: 'ショートカットキーを検出: {{combo}}（{{action}}）',
       hotkeyActionStart: 'タスク開始',
       hotkeyActionStop: 'タスク停止',
-      hotkeyStartSuccess: 'ショートカットキーでタスク開始：成功',
-      hotkeyStartFailed: 'ショートカットキーでタスク開始：失敗',
-      hotkeyStopSuccess: 'ショートカットキーでタスク停止：成功',
-      hotkeyStopFailed: 'ショートカットキーでタスク停止：失敗',
+      hotkeyStartSuccess: 'ショートカットキーでタスクを開始しました：',
+      hotkeyStartFailed: 'ショートカットキーでタスクを開始できませんでした',
+      hotkeyStopSuccess: 'ショートカットキーでタスクを停止しました',
+      hotkeyStopFailed: 'ショートカットキーでタスクを停止できませんでした',
     },
   },
 

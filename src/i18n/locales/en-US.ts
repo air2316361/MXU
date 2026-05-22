@@ -433,10 +433,10 @@ export default {
   logs: {
     title: 'Logs',
     clear: 'Clear',
-    autoClearOnLaunch: 'Auto-clear on launch',
     autoscroll: 'Auto Scroll',
     noLogs: 'No logs',
     copyAll: 'Copy All',
+    showMoreLogs: 'Show more logs',
     expand: 'Expand panels above',
     collapse: 'Collapse panels above',
     scrollToLogs: 'View logs',
@@ -467,14 +467,17 @@ export default {
       agentConnected: 'Agent connected',
       agentDisconnected: 'Agent disconnected',
       agentFailed: 'Agent start failed',
+      agentLogFloodWarning:
+        'Agent is in a log flood state. To avoid performance issues, log display has been paused. The complete log is available in the local log file.',
+      agentLogFloodRecovered: 'Agent log flood has eased',
       // Hotkeys
       hotkeyDetected: 'Hotkey detected: {{combo}} ({{action}})',
       hotkeyActionStart: 'Start tasks',
       hotkeyActionStop: 'Stop tasks',
-      hotkeyStartSuccess: 'Hotkey start tasks: success',
-      hotkeyStartFailed: 'Hotkey start tasks: failed',
-      hotkeyStopSuccess: 'Hotkey stop tasks: success',
-      hotkeyStopFailed: 'Hotkey stop tasks: failed',
+      hotkeyStartSuccess: 'Started tasks via hotkey:',
+      hotkeyStartFailed: 'Failed to start tasks via hotkey',
+      hotkeyStopSuccess: 'Stopped tasks via hotkey',
+      hotkeyStopFailed: 'Failed to stop tasks via hotkey',
     },
   },
 
