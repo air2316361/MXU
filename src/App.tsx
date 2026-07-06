@@ -978,46 +978,40 @@ function App() {
 
       // 自动检查更新并下载（调试版本跳过，MXU 开发模式跳过）
       if (result.interface.mirrorchyan_rid && result.interface.version) {
-        if (import.meta.env.DEV) {
-          log.info('MXU 开发模式，跳过自动更新检查');
-        } else if (isDebugVersion(result.interface.version)) {
-          log.info(`非正式版本 (${result.interface.version})，跳过自动更新检查`);
-        } else {
-          const appState = useAppStore.getState();
-          try {
-            const updateResult = await checkAndPrepareDownload({
-              resourceId: result.interface.mirrorchyan_rid,
-              currentVersion: result.interface.version,
-              cdk: appState.mirrorChyanSettings.cdk || undefined,
-              channel: appState.mirrorChyanSettings.channel,
-              userAgent: 'MXU',
-              githubUrl: result.interface.github,
-              githubPat: appState.mirrorChyanSettings.githubPat || undefined,
-              proxyUrl: appState.proxySettings?.url,
-              projectName: result.interface.name,
-            });
-            if (updateResult) {
-              setUpdateInfo(updateResult);
-              if (updateResult.hasUpdate) {
-                log.info(`发现新版本: ${updateResult.versionName}`);
-                useAppStore.getState().setShowUpdateDialog(true);
-                if (updateResult.downloadUrl) {
-                  startAutoDownload(updateResult);
-                  // 下载→安装→重启后任务在新版本上执行，挂起本次任务分发
-                  // 下载失败/取消时通过 pendingAutoTasksRef 恢复分发
-                  if (autoStartTasksPending) {
-                    autoStartTasksPending = false;
-                    pendingAutoTasksRef.current = true;
-                  }
+      const appState = useAppStore.getState();
+        try {
+          const updateResult = await checkAndPrepareDownload({
+            resourceId: result.interface.mirrorchyan_rid,
+            currentVersion: result.interface.version,
+            cdk: appState.mirrorChyanSettings.cdk || undefined,
+            channel: appState.mirrorChyanSettings.channel,
+            userAgent: 'MXU',
+            githubUrl: result.interface.github,
+            githubPat: appState.mirrorChyanSettings.githubPat || undefined,
+            proxyUrl: appState.proxySettings?.url,
+            projectName: result.interface.name,
+          });
+          if (updateResult) {
+            setUpdateInfo(updateResult);
+            if (updateResult.hasUpdate) {
+              log.info(`发现新版本: ${updateResult.versionName}`);
+              useAppStore.getState().setShowUpdateDialog(true);
+              if (updateResult.downloadUrl) {
+                startAutoDownload(updateResult);
+                // 下载→安装→重启后任务在新版本上执行，挂起本次任务分发
+                // 下载失败/取消时通过 pendingAutoTasksRef 恢复分发
+                if (autoStartTasksPending) {
+                  autoStartTasksPending = false;
+                  pendingAutoTasksRef.current = true;
                 }
-              } else if (updateResult.errorCode) {
-                log.warn(`更新检查返回错误: code=${updateResult.errorCode}`);
-                useAppStore.getState().setShowUpdateDialog(true);
               }
+            } else if (updateResult.errorCode) {
+              log.warn(`更新检查返回错误: code=${updateResult.errorCode}`);
+              useAppStore.getState().setShowUpdateDialog(true);
             }
-          } catch (err) {
-            log.warn('自动检查更新失败:', err);
           }
+        } catch (err) {
+          log.warn('自动检查更新失败:', err);
         }
       }
 
