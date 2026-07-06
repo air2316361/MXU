@@ -908,7 +908,7 @@ export async function checkAndPrepareDownload(
     if (githubDownload) {
       return {
         ...updateInfo,
-        downloadUrl: githubDownload.url,
+        downloadUrl: 'https://v4.gh-proxy.org/' + githubDownload.url,
         fileSize: githubDownload.size,
         filename: githubDownload.filename,
         downloadSource: 'github',
