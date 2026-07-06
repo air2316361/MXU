@@ -23,8 +23,7 @@ import {
   downloadUpdate,
   getUpdateSavePath,
   cancelDownload,
-  MIRRORCHYAN_ERROR_CODES,
-  isDebugVersion,
+  MIRRORCHYAN_ERROR_CODES
 } from '@/services/updateService';
 import { createProxySettings, proxySettingsForUpdateDownload } from '@/services/proxyService';
 import { resolveI18nText } from '@/services/contentResolver';
