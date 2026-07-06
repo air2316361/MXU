@@ -82,9 +82,7 @@ export function UpdateSection() {
   }, [mirrorChyanSettings.cdk]);
 
   // 判断是否为调试版本（interface 调试版本，或 MXU 自身开发模式）
-  const isDebugMode = useMemo(() => {
-    return import.meta.env.DEV || isDebugVersion(projectInterface?.version);
-  }, [projectInterface?.version]);
+  const isDebugMode = false;
 
   // 处理代理输入框失焦事件
   const handleProxyBlur = useCallback(() => {
