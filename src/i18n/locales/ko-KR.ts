@@ -49,6 +49,8 @@ export default {
     appearance: '외관',
     hotkeys: '단축키',
     general: '일반',
+    taskSettings: '작업 설정',
+    taskSettingsEmpty: '표시할 수 있는 설정 항목이 없습니다',
     language: '언어',
     backgroundImage: '배경 이미지',
     backgroundOpacity: '배경 불투명도',
@@ -226,6 +228,10 @@ export default {
       resourceFailed: '리소스 로딩에 실패했습니다',
       startFailed: '작업 시작에 실패했습니다',
       agentStartParams: 'Agent #{{index}} 시작 파라미터: {{cmd}}  (작업 디렉토리: {{cwd}})',
+      agentSpawnHintFileNotFound:
+        'Agent가 백신에 의해 차단되지 않았는지 확인한 뒤, 문제가 없으면 덮어쓰기 재설치를 진행하세요.',
+      agentSpawnHintAppControl:
+        '「Windows 보안 → 앱 및 브라우저 제어 → 스마트 앱 컨트롤」에서 해당 기능을 끈 후 다시 시도하세요.',
       needConfig: '먼저 기기를 연결하고 리소스를 로드하거나 연결 패널에서 기기 설정을 저장하세요',
     },
   },
@@ -310,6 +316,10 @@ export default {
     preActionCompletedNamed: '전처리 프로그램 {{name}} 완료',
     preActionFailed: '전처리 프로그램 실패: {{error}}',
     preActionExitCode: '전처리 프로그램 종료 코드: {{code}}',
+    pretaskStarting: '사전 작업 실행 중: {{name}}',
+    pretaskCompleted: '사전 작업 완료: {{name}}',
+    pretaskExitCode: '사전 작업 종료 코드: {{code}}',
+    pretaskFailed: '사전 작업 실행 실패: {{error}}',
     preActionConnectDelay: '{{seconds}}초 후 연결합니다...',
     autoPreActionName: '▶️ {{name}} 실행',
     autoPreActionAdded: '전처리 프로그램 자동 추가: {{name}} (기본적으로 비활성화)',
@@ -327,6 +337,8 @@ export default {
     noMatchingOptions: '일치하는 옵션 없음',
     incompatibleController: '현재 컨트롤러에서 지원되지 않음',
     incompatibleResource: '현재 리소스 팩에서 지원되지 않음',
+    hotkeyPlaceholder: '클릭하여 단축키 입력',
+    hotkeyCapturing: '키를 누르세요...',
   },
 
   // 프리셋
@@ -451,6 +463,7 @@ export default {
       loadingResource: '리소스 로딩 중: {{name}}',
       resourceLoaded: '리소스 로드됨: {{name}}',
       resourceFailed: '리소스 로딩 실패: {{name}}',
+      resourceFailedHint: '해당 리소스 디렉터리를 삭제한 뒤 덮어쓰기 재설치 후 다시 시도해 보세요.',
       // 작업 메시지
       taskStarting: '작업 시작: {{name}}',
       taskSucceeded: '작업 완료: {{name}}',
@@ -487,6 +500,7 @@ export default {
     alreadyAdded: '추가됨',
     collapse: '패널 접기',
     specialTasks: '특수 작업',
+    pretasks: '사전 작업',
     allSpecialTasksAdded: '모두 추가됨',
     ungroupedTasks: '기타',
     resizeHandleAriaLabel: '작업 추가 패널 높이 조정',
